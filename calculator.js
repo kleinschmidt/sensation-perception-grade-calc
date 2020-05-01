@@ -15,16 +15,18 @@ function calculate() {
     60
   ];
 
-  let min = points[0] / possible_points[0];
-  let min_i = 0;
-  for (let i = 1; i < 4; i++) {
+  let min = 1000;
+  let min_i = -1;
+  for (let i = 0; i < 4; i++) {
+    if (typeof(points[i]) !== 'number' || isNaN(points[i])) {
+      return undefined;
+    }
+    
     if (points[i] / possible_points[i] < min) {
       min = points[i] / possible_points[i];
       min_i = i;
     }
   }
-
-  // console.log(min, min_i);
   
   let total = 0;
   let total_possible = 0;
@@ -34,19 +36,21 @@ function calculate() {
       total_possible += possible_points[i];
     }
   }
-
-  // console.log(total, total_possible);
-
-  const output = document.getElementById("output");
   const percentage = total / total_possible * 100;
-
-  const letter = grade(percentage);
-
-  output.innerText = `${total} / ${total_possible} (${Math.round(percentage)}%): ${letter}`;
-  
+  return {total, total_possible, percentage};
 }
 
-window.addEventListener('change', calculate);
+window.addEventListener('input', () => {
+  const output = document.getElementById("output");
+  const calculated = calculate();
+  if (calculated === undefined) {
+    output.innerText = "";
+  } else {
+    const {total, total_possible, percentage} = calculated;
+    const letter = grade(percentage);
+    output.innerText = `${total} / ${total_possible} (${Math.round(percentage)}%): ${letter}`;
+  }
+});
 
 function grade(percentage) {
   const percentage_cutoffs = [
