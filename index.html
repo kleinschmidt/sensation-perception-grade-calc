@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <script src="calculator.js" ></script>
+    </head>
+    <body>
+        <h1>Sensation and perception grade calculator</h1>
+        <div id="directions" >
+            <p>
+                The final exam will have two parts.  The first part will have 30
+                questions and cover material since the second midterm (classes
+                19-24).  The second part will have 60 questions and is
+                cumulative.  That means there are <strong>four</strong> assessments
+                from this class: the two midterms, the non-cumulative portion of
+                the final, and the cumulative portion.  Your lowest score of the
+                four will be dropped (using the percentage correct to determine
+                which is lowest).
+            </p>
+            <p>
+                This means that <strong>you can skip one part of the final</strong>
+                without penalty.  If you don't take one part of the final, a
+                grade of zero will be entered which will be dropped from your
+                final grade.
+            </p>
+            <p>
+                Because the four assessments have different numbers of
+                questions, they have different weights in the calculation of the
+                final grade.  This might be confusing so I've created a small
+                calculator to help you see what would happen with different
+                scores on the final.
+            </p>
+            <h2>How to use the calculator</h2>
+            <p>
+                Enter your scores on the first two midterms, and adjust the
+                anticipated scores for the two parts of the final
+                (non-cumulative covers classes 19-24; cumulative covers entire
+                semester).
+            </p>
+            <p>
+                Put a 0 in to simulate skipping one part of the final.
+            </p>
+        </div>
+        <div id="grades" >
+            <p>
+                <label for="midterm1" >Midterm 1:</label>
+                <input type="number" id="midterm1" min="0" max="50"> / 50
+            </p>
+            <p>
+                <label for="midterm2" >Midterm 2:</label>
+                <input type="number" id="midterm2" min="0" max="50"> / 50
+            </p>
+            <p>
+                <label for="final1" >Final non-cumulative part (classes 19-24):</label>
+                <input type="number" id="final1" min="0" max="30" > / 30
+            </p>
+            <p>
+                <lable for="final2" >Final (cumulative part):</lable>
+                <input type="number" id="final2" min="0" max="60" > / 60
+            </p>
+        </div>
+        <div id="results" >
+            Grade (with lowest dropped):
+            <span id="output" ></span>
+        </div>
+    </body>
+</html>
