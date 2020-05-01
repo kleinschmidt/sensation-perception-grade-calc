@@ -18,9 +18,14 @@ function calculate() {
   let min = 1000;
   let min_i = -1;
   for (let i = 0; i < 4; i++) {
-    if (typeof(points[i]) !== 'number' || isNaN(points[i]) ||
-        points[i] > possible_points[i] || points[i] < 0) {
+    if (typeof(points[i]) !== 'number' || 
+        points[i] > possible_points[i] ||
+        points[i] < 0) {
       return undefined;
+    }
+
+    if (isNaN(points[i])) {
+      points[i] = 0;
     }
     
     if (points[i] / possible_points[i] < min) {
