@@ -12,7 +12,7 @@ function calculate() {
     50,
     50,
     30,
-    60
+    50
   ];
 
   let min = 1000;
