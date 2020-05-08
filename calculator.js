@@ -71,7 +71,7 @@ function grade(percentage) {
   const grades = ["F", "D", "C", "C+", "B", "B+", "A"];
 
   let grade_i = 0;
-  while (percentage > percentage_cutoffs[grade_i]) grade_i++;
+  while (percentage >= percentage_cutoffs[grade_i]) grade_i++;
   return grades[grade_i - 1];
     
 }
